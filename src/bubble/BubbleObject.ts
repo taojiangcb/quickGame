@@ -1,13 +1,14 @@
 /**
 * name 
 */
-module com.quickGame.bubble{
+module bubble{
 
-	export class BubbleObject extends com.quickGame.uiBase.UIComponentBase{
+	export class BubbleObject extends uiBase.UIComponentBase{
 		
 		aGrap:fairygui.GGraph;		
 		ax:number = 0;
 		ay:number = 0;
+		color:string = "#FF0000";
 		raidu:number =AppConst.DEFAULT_RADIU;
 
 		constructor(){
@@ -18,27 +19,25 @@ module com.quickGame.bubble{
 			this.initComps();
 		}
 
-		protected initComps():void {
+		initComps():void {
 			super.initComps();
 			this.aGrap = new fairygui.GGraph();
 		
 			this.drawUpdate();
 			this.addChild(this.aGrap);
 			this.setDefaultXY();
-			//Laya.timer.loop(AppConst.FPS,this,this.onUpdate);
 			Laya.timer.frameLoop(1,this,this.onUpdate);
 		}
 
 		private onUpdate():void {
 			this.drawUpdate();
 			this.updateDisplay();
-			console.log("this a enterframe");
 		}
 
 		private drawUpdate() {
 			this.aGrap.setPivot(0.5,0.5);
 			this.aGrap.setSize(this.raidu * 2,this.raidu * 2,false);
-			this.aGrap.drawEllipse(1,"#FF0000","#FFFFFF");
+			this.aGrap.drawEllipse(1,this.color,"#FFFFFF");
 		}
 
 		private setDefaultXY() {
@@ -53,10 +52,8 @@ module com.quickGame.bubble{
 			var vy:number = 0;
 			vx += this.ax; 
 			vy+= this.ay;
-			
 			var nx:number = this.x + vx;
 			var ny:number = this.y + vy;
-
 			this.x = nx;
 			this.y = ny;
 		}

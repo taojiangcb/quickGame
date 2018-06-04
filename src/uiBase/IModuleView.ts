@@ -1,10 +1,11 @@
 /**
 * name 
 */
-module com.quickGame.modules{
+module uiBase{
 	export interface IModuleView{
 		userData:any;
 		initComps():void;
-		onAddToStage():void;
+		openRefresh():void;
 	}
+
 }

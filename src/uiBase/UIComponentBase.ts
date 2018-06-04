@@ -1,18 +1,15 @@
+
 /**
-* name 
-*/
+ * UIComponent 组件
+ */
 
-import GComponent = fairygui.GComponent;
-import IModuleView = com.quickGame.modules.IModuleView;
-
-
-module com.quickGame.uiBase{
+module uiBase{
 	export class UIComponentBase extends fairygui.GComponent implements IModuleView{
-
+		
 		userData:any;
 		constructor(){
 			super();
-			this.displayObject.on(Laya.Event.DISPLAY,this,this.onAddToStage);
+			this.displayObject.on(Laya.Event.DISPLAY,this,this.openRefresh);
 		}
 
 		protected constructFromXML(xml: Object): void {
@@ -20,15 +17,21 @@ module com.quickGame.uiBase{
 			this.initComps();
 		}
 
+		/**
+		 * 初始化子组件
+		 */
 		initComps():void {
 		}
 
-		onAddToStage():void {
+		/**
+		 * 当显示时刷新
+		 */
+		openRefresh():void {
 		}
 
 		dispose():void {
 			if(!this.displayObject) {
-				this.displayObject.off(Laya.Event.DISPLAY,this,this.onAddToStage)
+				this.displayObject.off(Laya.Event.DISPLAY,this,this.openRefresh);
 			}
 			super.dispose();
 		}

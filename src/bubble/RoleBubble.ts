@@ -1,7 +1,7 @@
 /**
 * name 
 */
-module com.quickGame.bubble{
+module bubble{
 	export class RoleBubble extends BubbleObject{
 		constructor(){
 			super();

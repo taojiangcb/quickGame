@@ -2,6 +2,18 @@
 	"version": "0.2.0",
 	"configurations": [ 
 		{
+			"name": "layaAir-dev",
+			"type": "chrome",
+			"request": "launch",
+			"file": "${workspaceRoot}/bin/index-dev.html",
+			"runtimeExecutable": "${execPath}",
+			"useBuildInServer": true,
+			"sourceMaps": true,
+			"webRoot": "${workspaceRoot}",
+			"port": 9222,
+			"fixedPort":false
+		},
+		{
 			"name": "layaAir",
 			"type": "chrome",
 			"request": "launch",
